@@ -1,0 +1,6 @@
+[submodule "packages/toolbarbutton"]
+	path = packages/toolbarbutton
+	url = git://github.com/erikvold/toolbarbutton-jplib
+[submodule "packages/void-utils"]
+	path = packages/void-utils
+	url = git://github.com/erikvold/vold-utils-jplib.git

@@ -1,0 +1,18 @@
+	<html>
+		<head>
+			<script type="text/javascript" charset="utf-8">
+				function pluginLoaded() {
+					// Create an event once plugin is loaded
+					// This allows the contentscript to detect plugin state
+					var evt = document.createEvent("CustomEvent");
+					evt.initCustomEvent("pluginLoaded", true, false, null);
+					window.dispatchEvent(evt);
+				}	
+			</script>
+		</head>
+		<body>
+			<object id="broadmask" type="application/x-broadmask" width="300" height="300">
+				<param name="onload" value="pluginLoaded" />
+			</object>
+		</body>
+	</html>
