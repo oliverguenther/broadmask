@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Manage Instances</title>
+		<link rel="stylesheet" href="../css/bootstrap.css" type="text/css" charset="utf-8"/>
+		<link rel="stylesheet" href="../css/app.css" type="text/css" charset="utf-8"/>
+		<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery.watch.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/app.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../js/sha256.js"></script>
+
+	</head>
+	<body>
+		<div id="header">
+			<h1><span i18n>BroadMask</span> <small><span i18n>Regaining Privacy Control over User-Provided Content in Facebook</span></small></h1>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="span3">
+					<ul id="navbar" class="nav nav-list">
+					</ul>
+				</div>	
+				<div class="span9">
+					<div id="app-content" class="content">
+						<div class="page-header">
+							<h3>Instances <small>Manage private channels with your friends</small></h3>
+						</div>	
+						<div class="alert alert-error alert-block" id="errormsg" style="display:none">
+							<a class="close" href="javascript:hideErrors()">×</a>
+							<h4 class="alert-heading">Error!</h4>
+							<div id="errors">
+							</div>
+						</div>
+						<div id="instances">
+						</div>
+						<div id="instancedetail"></div>
+						<div>
+							<div style="display:none" id="create_instance_success" class="alert alert-success">
+								The instance has been created.
+							</div>
+							<div class="topmargin page-header">
+								<h3>Add instance <small>Create a new channel</small></h3>
+							</div>	
+							<form id="create_instance" class="form form-horizontal">
+								<div class="control-group">
+									<label class="control-label" for="instance_name">Instance name</label>
+									<div class="controls">
+										<input type="text" class="input-xlarge" id="instance_name">
+										<p class="help-block light">Enter the name of your instance. This is a <strong>private identifier</strong> and not shared with others.</p>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="instance_type">Instance Type</label>
+									<div class="controls">
+										<select id="instance_type">
+											<option value="bes">Broadcast Encryption</option>
+											<option value="sk">Shared-Key Encryption</option>
+										</select>
+										<p class="help-block light">
+										Select the encryption method to use within this instance.<br/>
+										<dl class="light">
+											<dt>Broadcast Encryption</dt>
+											<dd>A broadcast encryption system uses pairing-based cryptography to derive a symmetric key. Use this variant if you wish to encrypt content for a <strong>varying</strong> subset of your friends</dd>
+											<dt>Shared-Key Encryption</dt>
+											<dd>Share the content with a <strong>fixed</strong> symmetric key. Use this scheme if you <strong>always</strong> share with the same number of receivers.</dd>
+										</dl>
+										</p>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="add_user">Add user</label>
+									<div class="controls">
+										<div class="input-append">
+											<input class="span3" id="add_user" autocomplete="off" size="24" type="text"><button id="btn_add_user" class="btn btn-inverse" type="button">Add</button>
+										</div>
+										<p class="help-block light">
+										Enter the names of you're friends you wish to add to this scheme.<br/><strong>Note:</strong> If you select <em>Broadcast Encryption</em>, you can select the receivers each time your share new content!
+										</p>
+									</div>
+								</div>
+								<div id="added_users">
+								</div>
+								<div style="clear:both"></div>
+								<div class="form-actions">
+									<button id="btn_create_instance" type="submit" class="btn btn-success">Create instance</button>
+									<button id="btn_reset_form" class="btn">Reset</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</body>
+		<script src="../js/i18n.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			UI.bmMenu("navbar", "instances");	
+		</script>
+	</html>

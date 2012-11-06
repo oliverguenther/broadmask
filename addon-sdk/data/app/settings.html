@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Settings</title>
+		<link rel="stylesheet" href="../css/bootstrap.css" type="text/css" charset="utf-8"/>
+		<link rel="stylesheet" href="../css/app.css" type="text/css" charset="utf-8"/>
+		<script src="../js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/utils.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery.watch.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/app.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div id="header">
+			<h1><span i18n>BroadMask</span> <small><span i18n>Regaining Privacy Control over User-Provided Content in Facebook</span></small></h1>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="span3">
+					<ul id="navbar" class="nav nav-list">
+					</ul>
+				</div>
+				<div id="app-content" class="span9">
+					<div class="content">
+						<div class="alert-message" id="errormsg" style="display:none">
+							<a class="close" href="javascript:hideErrors()">×</a>
+							<div id="errors">
+							</div>
+						</div>
+						<form id="create_profile_form" class="form form-horizontal" method="post">
+							<div id="profile">
+								<div class="page-header">
+									<h3>Profile <small>Set up / Manage your Profile</small></h3>
+								</div>
+								<div id="current_profiles"></div>
+								<div class="page-header">
+									<h4>Add Profile</h4>
+								</div>
+								<div class="control-group">
+									<div class="control-group">
+										<label class="control-label" for="add_profile_name">New Profile Name</label>
+										<div class="controls">
+											<input type="text" class="span5" id="add_profile_name">
+											<p class="help-block light">This is the local name for your profile</p>
+										</div>
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label" for="add_profile_keyselect">Profile PGP key</label>
+									<div class="controls">
+										<select class="span5" id="add_profile_keyselect" disabled>
+										</select>
+										<p class="help-block light">
+										Select one of your local GnuPG for profile encryption
+										</p>
+									</div>
+								</div>
+								<div class="form-actions">
+									<button id="btn-create-profile" class="btn btn-success"><i class="icon-white icon-check"></i> Create profile</button>
+								</div>
+							</div>
+							<!-- <div id="paranoia">
+								<div class="page-header">
+									<h3>Paranoia <small>Disable usability features for full privacy</small></h3>
+								</div>
+								<p class="light">
+								<span i18n>settings_paranoia_infoblock</span>
+								</p>
+								<div class="control-group">
+									<label class="control-label" for="paranoia_noinline">settings_paranoia_noinline</label>
+									<label class="control-label" for="paranoia_noinline">Integrated post decryption</label>
+									<div class="controls">
+										<label class="checkbox">
+											<input type="checkbox" id="paranoia_noinline" value="1" checked>
+											<span class="help-inline light"><span i18n>settings_paranoia_noinline_text</span></span>
+											<span class="help-inline light">Uncheck this checkbox to <strong>disable</strong> inline replacement of wall posts. You will instead be forced to click on a post before seeing it's content</span>
+										</label>
+									</div>
+								</div>
+							</div> -->
+						</form>
+					</div>
+				</div>
+			</div>
+		</body>
+		<script src="../js/i18n.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" charset="utf-8">
+			UI.bmMenu("navbar", "settings");	
+		</script>
+	</html>

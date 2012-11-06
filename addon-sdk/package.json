@@ -1,0 +1,17 @@
+{
+	"name": "broadmask-firefox",
+	"license": "MPL 2.0",
+	"author": "",
+	"version": "0.1",
+	"dependencies": [
+		"oauthorizer",
+		"api-utils",
+		"addon-kit",
+		"toolbarbutton",
+		"broadmask-picasa",
+		"broadmask-facebook"
+	],
+	"fullName": "BroadMask Firefox Extension",
+	"id": "jid1-torOPPuPAdZ25A",
+	"description": "BroadMask offers privacy-preserving communication in Facebook using an NPAPI plugin"
+}
