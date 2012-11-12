@@ -1,0 +1,8 @@
+{
+    "name": "broadmask-picasa",
+    "description": "Picasa API addon to BroadMask",
+    "author": "Oliver Guenther (http://oliverguenther.de) <mail@oliverguenther.de>",
+    "version": "0.1",
+    "license": "GPLv3",
+    "dependencies": ["api-utils", "oauthorizer", "addon-kit"]
+}

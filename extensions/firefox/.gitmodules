@@ -1,0 +1,9 @@
+[submodule "addon-sdk/packages/toolbarbutton"]
+	path = addon-sdk/packages/toolbarbutton
+	url = https://github.com/erikvold/toolbarbutton-jplib/
+[submodule "addon-sdk/packages/void-utils"]
+	path = addon-sdk/packages/void-utils
+	url = https://github.com/erikvold/vold-utils-jplib
+[submodule "addon-sdk/packages/oauthorizer"]
+	path = addon-sdk/packages/oauthorizer
+	url = https://github.com/mozilla/oauthorizer/
