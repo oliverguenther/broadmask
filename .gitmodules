@@ -1,3 +1,6 @@
 [submodule "backend/js/util/permafrost"]
 	path = backend/js/util/permafrost
 	url = git://github.com/oliverguenther/Permafrost.git
+[submodule "npapi"]
+	path = npapi
+	url = https://github.com/oliverguenther/broadmask-npapi
