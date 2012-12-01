@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Broadmask : " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Broadmask</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/oliverguenther/broadmask">View on GitHub</a>
+
+          <h1 id="project_title">Broadmask</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/oliverguenther/broadmask/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/oliverguenther/broadmask/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>Using the BroadMask Extension</h1>
+
+<h2>Installation</h2>
+
+<p>The latest Chrome and Firefox extension for Mac OSX (Universal, tested on 10.7+) and Linux 32/64-bit versions is available at:</p>
+
+<p><a href="https://github.com/oliverguenther/broadmask/downloads">https://github.com/oliverguenther/broadmask/downloads</a></p>
+
+<p>Download the appropriate extension file and drop the extension file on your browser. For Chrome, drag the file onto the Chrome's extensions page (Tools &gt; Extensions).</p>
+
+<h3>Dependencies</h3>
+
+<p>For file encryption and key distribution, BroadMask depends on an active <a href="http://www.gnupg.org">GnuPG</a> installation.</p>
+
+<h2>Using the Extension</h2>
+
+<h3>Profiles</h3>
+
+<p>Prior to using BroadMask for profile management, you need to create a local <em>profile</em>, which is essentially a local storage for all generated keys. </p>
+
+<p>You can create a Profile in the <strong>Settings</strong> tab. Enter a name and select one of your local PGP keys, which will be used to encrypt your data. Once created, click the <em>Use this Profile</em> link to activate the profile (Will open GPG Pinentry program unless you cached the credentials.)</p>
+
+<h3>Social Networks</h3>
+
+<p>After setting up a profile, you'll need to authorize Facebook to access the API on your behalf. You can do so on the <strong>Social Networks</strong> tab. </p>
+
+<p>Note: While BroadMask does not require basic permissions (does not read/access any personal information), BroadMask depends on two extended permissions:</p>
+
+<ul>
+<li>
+<strong>publish stream</strong> Reason: Publish encrypted posts to your wall</li>
+<li>
+<strong>read stream</strong>: Filtering your wall for incoming BroadMask posts</li>
+</ul><p>If you wish to privately share media files, you additionally need a Google account and authorize it to access <em>Google PicasaWeb</em> for untrusted storage. Any media files you share are converted to a <a href="http://www.ietf.org/rfc/rfc2397.txt">data URL</a> and encrypted before uploading it to Picasa.</p>
+
+<h3>Manage Groups</h3>
+
+<p>Now you're ready to create your first private groups by entering a group name (which is <em>not</em> shared, but only used for easier identification). Select one of the following instance types:</p>
+
+<ul>
+<li><p><strong>Broadcast Encryption:</strong>
+A broadcast encryption system uses pairing-based cryptography to derive a symmetric key. Use this variant if you wish to encrypt content for a varying subset of your friends</p></li>
+<li><p><strong>Shared-Key Encryption:</strong>
+Share the content with a fixed symmetric key. Use this scheme if you always share with the same number of receivers.</p></li>
+</ul><p>Then you can <em>add users</em> to your group by entering names of your Facebook friends, whose names have been cached by the extension. If you're ready, click the <strong>Create instance</strong> button, which sets up the instance and generates the necessary keys.</p>
+
+<h3>Share Content</h3>
+
+<p>Once you've created one or more private group instances, you may enter private messages (along with media files) in the <strong>Share Content</strong> tab. Simply drag &amp; drop files on the text message field or select media files. Select the group instance to <em>share with</em>, and hit the upload button.<br>
+The progress of media file upload is displayed and the post is shared on your Facebook wall using the Facebook SDK's default sharing setting (which currently defaults to <strong>all friends</strong>).</p>
+
+<p><em>Note:</em> Sharing media files requires you to authorize your Google account <em>beforehand</em>. Picasa's file upload limit is 20 MB.</p>
+
+<h3>Viewing Content</h3>
+
+<p>The Extension will parse BroadMask wall posts <em>directly on Facebook</em> whenever you visit the Facebook pages. If the necessary instance details are found, it will download the post (and optionally, and media linked within), decrypt it and inject it back in the wall post.</p>
+
+<h3>Key distribution</h3>
+
+<p>In order for your friends to decrypt your posts, they need the BroadMask extension <strong>and</strong> your private group instance details (a 32-byte key for Shared-Key encryption, and Public/Private keypair for Broadcast Encryption). </p>
+
+<p>In the <strong>Manage Groups</strong> tab, clicking on an instance will display all members in that particular group. You can manually share these details to your friends by copying it and forward to them using a  <strong>secure</strong> channel (e.g., encrypted email). </p>
+
+<p>But obviously, this becomes cumbersome for a large number of friends. Thus, you may use OpenPGP's infrastructure for exchanging keys directly within Facebook! Open the <strong>Key Mapping</strong> tab. At the bottom of this tab, you may upload a <strong>fingerprint</strong> of your PGP public key as a Facebook wall post. The extension will also fetch PGP public keys of your friends they shared in the same manner. Using the <strong>Update manually</strong> button, you can <em>force</em> a refresh PGP fingerprints other people shared on their Facebook wall.</p>
+
+<p>Note: If you already possess the PGP key of some Facebook friend of yours, copy the PGP fingerprint and use the <strong>Create Mapping</strong> form to import the mapping to your profile.</p>
+
+<p>If a PGP fingerprint is found, the associated key is imported to your GnuPG keyring. <strong>Important:</strong> Validate the correctness the fingerprint of your friend's PGP key! If you don't trust it, remove it from the mappings list.</p>
+
+<p>For all friends with a <em>known</em> PGP fingerprint, you can share the instance details (from the <strong>Manage Groups</strong> tab), <strong>encrypted</strong> using the matching PGP public key, as a Facebook wall post. Once the friend visists Facebook and sees your post, the extension grabs the details, decrypts it and adds the instance---allowing her to decrypt your post!</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Broadmask maintained by <a href="https://github.com/oliverguenther">oliverguenther</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-36735295-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
